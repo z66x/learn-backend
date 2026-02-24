@@ -5,9 +5,9 @@ import (
 	"math/rand"
 	"net/http"
 	"os"
-
+	"log"
 	"github.com/go-chi/chi/v5"
-	"github.com/z66x/url-shortener/internal/db"
+	"github.com/z66x/learn-backend/url-shortener/internal/db"
 )
 
 type URLHandler struct {
@@ -32,6 +32,7 @@ func (h *URLHandler) Shorten(w http.ResponseWriter, r *http.Request) {
 
 	url, err := h.repo.Create(r.Context(), body.URL, shortCode)
 	if err != nil {
+		log.Printf("failed to create short url: %v", err)
 		http.Error(w, "failed to create short url", http.StatusInternalServerError)
 		return
 	}

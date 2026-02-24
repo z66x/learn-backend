@@ -8,12 +8,13 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/joho/godotenv"
-	"github.com/z66x/url-shortener/internal/db"
-	"github.com/z66x/url-shortener/internal/handlers"
+	"github.com/go-chi/cors"
+	"github.com/z66x/learn-backend/url-shortener/internal/db"
+	"github.com/z66x/learn-backend/url-shortener/internal/handlers"
 )
 
 func main() {
-	if err := godotenv.Load("../../.env"); err != nil {
+	if err := godotenv.Load(".env"); err != nil {
 		log.Fatal("error loading .env file")
 	}
 
@@ -24,6 +25,11 @@ func main() {
 	urlHandler := handlers.NewURLHandler(urlRepo)
 
 	r := chi.NewRouter()
+	r.Use(cors.Handler(cors.Options{
+		AllowedOrigins: []string{"http://localhost:5173"},
+		AllowedMethods: []string{"GET", "POST"},
+		AllowedHeaders: []string{"Content-Type"},
+	}))
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 

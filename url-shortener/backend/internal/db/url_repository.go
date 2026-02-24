@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/jmoiron/sqlx"
-	"github.com/z66x/url-shortener/internal/models"
+	"github.com/z66x/learn-backend/url-shortener/internal/models"
 )
 
 type URLRepository struct {
