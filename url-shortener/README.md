@@ -2,6 +2,10 @@
 
 A fast, minimal URL shortener built with Go and Svelte.
 
+## Demo
+
+![demo](./screenshots/demo.png)
+
 ## Stack
 
 - **Backend:** Go + Chi
