@@ -22,10 +22,10 @@ func main() {
 	urlHandler := handlers.NewURLHandler(urlRepo)
 
 	r := chi.NewRouter()
-	r.Use(cors.Handler(cors.Options{
+	r.Use(cors.Handl er(cors.Options{
 		AllowedOrigins: []string{
 			"http://localhost:5173",
-			"https://zwix-url.up.railway.app/",
+			"https://zwix-url.up.railway.app",
 		},
 		AllowedMethods: []string{"GET", "POST"},
 		AllowedHeaders: []string{"Content-Type"},
