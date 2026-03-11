@@ -2,12 +2,12 @@
 
 A fast, minimal URL shortener built with Go and Svelte.
 
-## Demo
+🔗 **Live:** [zwix-url.up.railway.app](https://zwix-url.up.railway.app)
 
+## Demo
 ![demo](./screenshots/demo.png)
 
 ## Stack
-
 - **Backend:** Go + Chi
 - **Frontend:** Svelte + TypeScript
 - **Database:** PostgreSQL
@@ -30,9 +30,8 @@ url-shortener/
 ## Getting Started
 
 ### Prerequisites
-
-- Go 1.21+
-- Node.js 18+
+- Go 1.25+
+- Node.js 20+
 - Docker
 
 ### 1. Start the database
@@ -76,16 +75,21 @@ Open `http://localhost:5173`
 
 // response
 {
-  "short_url": "http://localhost:8080/abc123",
+  "short_url": "https://zwix-url-api.up.railway.app/abc123",
   "original_url": "https://example.com/very/long/url"
 }
 ```
 
-## Roadmap
+## Deployment
 
+Deployed on Railway:
+- **Frontend:** [zwix-url.up.railway.app](https://zwix-url.up.railway.app)
+- **Backend:** [zwix-url-api.up.railway.app](https://zwix-url-api.up.railway.app)
+- **Database:** Railway managed PostgreSQL
+
+## Roadmap
 - [ ] Redis caching
 - [ ] Click analytics
 - [ ] Custom slugs
 - [ ] Link expiry
 - [ ] Auth + dashboard
-- [ ] Deploy to Fly.io
