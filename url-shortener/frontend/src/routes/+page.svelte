@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PUBLIC_API_URL } from '$env/static/public';
+  import { env } from '$env/dynamic/public';
   let url = '';
   let shortUrl = '';
   let error = '';
@@ -12,7 +12,7 @@
     shortUrl = '';
 
     try {
-      const res = await fetch(`${PUBLIC_API_URL}/shorten`, {
+      const res = await fetch(`${env.PUBLIC_API_URL}/shorten`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url })
