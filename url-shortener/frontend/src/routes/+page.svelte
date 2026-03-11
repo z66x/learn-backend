@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { PUBLIC_API_URL } from '$env/static/public';
   let url = '';
   let shortUrl = '';
   let error = '';
@@ -11,7 +12,7 @@
     shortUrl = '';
 
     try {
-      const res = await fetch('http://localhost:8080/shorten', {
+      const res = await fetch(`${PUBLIC_API_URL}/shorten`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url })
